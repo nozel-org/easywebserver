@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #############################################################################
-# Version 0.1.2-ALPHA (28-12-2018)
+# Version 0.1.3-ALPHA (28-12-2018)
 #############################################################################
 
 #############################################################################
@@ -41,7 +41,7 @@ REMOVE_COCKPIT='yes' # either 'yes' or 'no'
 # SCRIPT VARIABLES
 #############################################################################
 
-SCRIPT_VERSION='0.1.2'
+SCRIPT_VERSION='0.1.3'
 
 #set -e # stop the script on errors
 #set -u # unset variables are an error
@@ -257,13 +257,13 @@ echo "${HOSTNAME}" > /etc/hostname
 # update repositories for Debian and Ubuntu
 if [ "${OS_NAME} ${OS_VERSION}" == "Debian GNU/Linux 8" ]; then
     echo "[+] Modifying sources.list..."
-    wget -q https://raw.githubusercontent.com/sveeke/EasyDebianWebserver/Release-1.1/resources/debian8-sources.list -O /etc/apt/sources.list --no-check-certificate
+    wget -q https://raw.githubusercontent.com/onnozel/EasyWebserver/master/resources/debian8-sources.list -O /etc/apt/sources.list --no-check-certificate
 elif [ "${OS_NAME} ${OS_VERSION}" == "Debian GNU/Linux 9" ]; then
     echo "[+] Modifying sources.list..."
-    wget -q https://raw.githubusercontent.com/sveeke/EasyDebianWebserver/Release-1.1/resources/debian9-sources.list -O /etc/apt/sources.list --no-check-certificate
+    wget -q https://raw.githubusercontent.com/onnozel/EasyWebserver/master/resources/debian9-sources.list -O /etc/apt/sources.list --no-check-certificate
 elif [ "${OS_NAME} ${OS_VERSION}" == "Debian GNU/Linux 10" ]; then
     echo "[+] Modifying sources.list..."
-    wget -q # ADD
+    wget -q https://raw.githubusercontent.com/onnozel/EasyWebserver/master/resources/debian10-sources.list -O /etc/apt/sources.list --no-check-certificate
 fi
 
 # remove cockpit from Fedora since it's extra attack surface normal users don't need
@@ -340,7 +340,7 @@ if [ "${OS_NAME} ${OS_VERSION}" == "CentOS Linux 7" ]; then
         # default CentOS 7 repo has a very old MariaDB. official MariaDB repo
         # is used for MariaDB 10.3 stable, which is supported until may 2023
         echo "[+] Installing MySQL (MariaDB)..."
-        wget #link to repo -O /etc/yum.repos.d/mariadb.repo
+        wget https://raw.githubusercontent.com/onnozel/EasyWebserver/master/resources/centos7-mariadb.repo -O /etc/yum.repos.d/mariadb.repo
         yum -y -q update
         yum -y -q install mariadb-server php-pdo php-mysqlnd
     elif [ "${INSTALL_CERTBOT}" == "yes" ]; then

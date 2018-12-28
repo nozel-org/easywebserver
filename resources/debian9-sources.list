@@ -1,4 +1,4 @@
-# Standard repositories
+# Default repositories
 deb http://deb.debian.org/debian stretch main
 deb-src http://deb.debian.org/debian stretch main
 deb http://deb.debian.org/debian stretch-updates main
