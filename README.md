@@ -1,3 +1,5 @@
+Notice: not supported anymore, but might still work depending on your operating system.
+
 # EasyWebserver
 You want a reasonably secure webserver based on Debian? Well, you are in luck! This shell script does exactly that.
 
@@ -40,12 +42,3 @@ You might wonder what software will be installed. Below is a short list, check t
 * Run the script as root
 * Have a working internet connection with DNS
 * Some free disk space
-
-## Plans and ideas for 2019
-* CentOS 8 support
-* Fedora 30 support
-* FreeBSD 12 support
-* HardenedBSD 12 support
-* Debian 10 support
-* Choice between apache and nginx?
-* Variable project url for importing your own resources
